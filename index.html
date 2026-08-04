@@ -7,26 +7,29 @@
 <style>
 body{
     font-family: Arial, sans-serif;
-    max-width:900px;
-    margin:auto;
-    line-height:1.7;
-    padding:40px;
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    line-height: 1.8;
+    color:#333;
 }
 h1,h2{
     color:#1f4e79;
 }
 table{
-    border-collapse:collapse;
+    border-collapse: collapse;
     width:100%;
 }
 table,th,td{
     border:1px solid #ccc;
 }
 th,td{
-    padding:8px;
+    padding:10px;
+}
+th{
+    background:#f2f2f2;
 }
 </style>
-
 </head>
 
 <body>
@@ -40,17 +43,108 @@ th,td{
 <h2>Abstract</h2>
 
 <p>
-This project investigates whether historical search performance signals can identify pages that should be prioritized for content refresh.
-A rule-based baseline and a Random Forest classifier were developed using anonymized FlyRank internship data.
-Historical search metrics including clicks, impressions, average position, CTR, and trend information were used for analysis.
-The resulting ranked recommendations are intended to support editorial decision-making rather than predict future ranking changes.
-All findings are presented as observational and decision-support evidence without claiming causal impact.
+This project investigates whether historical search performance can identify pages that should be prioritized for content refresh. A rule-based baseline and a Random Forest classifier were developed using the anonymized FlyRank internship dataset. Historical search signals including clicks, impressions, average search position, CTR and trend information were used as features. The results demonstrate that historical search signals can support prioritization decisions. The findings are intended as decision-support and do not imply causal improvement in search rankings.
 </p>
 
 <h2>1. Introduction / Problem Statement</h2>
 
 <p>
-Content teams often manage thousands of pages and cannot manually review every page.
-This project investigates whether historical search performance can be used to prioritize pages for review.
-The objective is to identify content that may benefit from refreshing based on observed historical search signals.
+Large websites contain thousands of pages, making manual review difficult. This project develops a simple content refresh scoring system using historical search performance. The objective is to identify pages that may benefit from editorial review.
 </p>
+
+<h2>2. Data</h2>
+
+<p>
+The analysis uses the anonymized FlyRank internship dataset (<b>content_refresh_anonymized.csv</b>). Historical search performance variables including clicks, impressions, average position, CTR and trend percentage were analyzed. No client names, URLs or private search queries were included.
+</p>
+
+<h2>3. Methodology</h2>
+
+<ul>
+<li>Baseline scoring rule created from historical search performance.</li>
+<li>Low clicks received +40 points.</li>
+<li>Low impressions received +30 points.</li>
+<li>Poor average position received +30 points.</li>
+<li>Random Forest classifier trained using historical features.</li>
+<li>No future-window information or label-derived variables were used.</li>
+</ul>
+
+<h2>4. Results</h2>
+
+<table>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+
+<tr>
+<td>Accuracy</td>
+<td>1.00</td>
+</tr>
+
+<tr>
+<td>Precision</td>
+<td>1.00</td>
+</tr>
+
+<tr>
+<td>Recall</td>
+<td>1.00</td>
+</tr>
+
+<tr>
+<td>F1 Score</td>
+<td>1.00</td>
+</tr>
+
+</table>
+
+<p>
+The Random Forest classifier reproduced the baseline rule because the target variable was generated from the same historical rule. Therefore, these results should be interpreted as reproducing the baseline decision process rather than demonstrating predictive superiority.
+</p>
+
+<h2>5. Limitations</h2>
+
+<ul>
+<li>Target labels were rule-generated rather than editorial outcomes.</li>
+<li>The project cannot demonstrate causal ranking improvement.</li>
+<li>Seasonality and external ranking factors were not modeled.</li>
+<li>Recommendations should support editorial decisions rather than replace them.</li>
+</ul>
+
+<h2>6. Ranked Recommendations</h2>
+
+<ol>
+<li>Prioritize pages with low historical clicks.</li>
+<li>Review pages with low impressions.</li>
+<li>Improve pages with poor average search position.</li>
+<li>Review metadata and content quality.</li>
+<li>Monitor performance after refresh.</li>
+</ol>
+
+<h2>7. Reproducibility</h2>
+
+<p>
+All notebooks, code and outputs are available in my GitHub repository:
+</p>
+
+<p>
+<b>Repository:</b><br>
+https://github.com/SanaKamranButt/flyrank-ml-internship
+</p>
+
+<h2>8. Acknowledgments & Data Credit</h2>
+
+<p>
+Built on the FlyRank ML Internship dataset.<br>
+Data credit: https://flyrank.ai
+</p>
+
+<hr>
+
+<p align="center">
+Content Refresh Opportunity Scoring Capstone • 2026
+</p>
+
+</body>
+</html>
