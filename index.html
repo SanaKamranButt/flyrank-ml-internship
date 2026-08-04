@@ -36,6 +36,8 @@ th{
 
 <h1>Content Refresh Opportunity Scoring using Historical Search Performance</h1>
 
+<p><strong>Machine Learning Capstone – FlyRank Internship</strong></p>
+
 <p><strong>Author:</strong> Sana Kamran</p>
 
 <hr>
@@ -55,7 +57,7 @@ Large websites contain thousands of pages, making manual review difficult. This 
 <h2>2. Data</h2>
 
 <p>
-The analysis uses the anonymized FlyRank internship dataset (<b>content_refresh_anonymized.csv</b>). Historical search performance variables including clicks, impressions, average position, CTR and trend percentage were analyzed. No client names, URLs or private search queries were included.
+The analysis uses the anonymized FlyRank internship dataset (<b>content_refresh_anonymized.csv</b>). Historical search performance variables including clicks, impressions, average position, CTR and trend percentage were analyzed. Rows with missing values in the selected features were excluded where necessary. No client names, URLs, credentials or private search queries were used.
 </p>
 
 <h2>3. Methodology</h2>
@@ -66,7 +68,7 @@ The analysis uses the anonymized FlyRank internship dataset (<b>content_refresh_
 <li>Low impressions received +30 points.</li>
 <li>Poor average position received +30 points.</li>
 <li>Random Forest classifier trained using historical features.</li>
-<li>No future-window information or label-derived variables were used.</li>
+<li>No future-window information, product flags or label-derived variables were used.</li>
 </ul>
 
 <h2>4. Results</h2>
@@ -100,7 +102,7 @@ The analysis uses the anonymized FlyRank internship dataset (<b>content_refresh_
 </table>
 
 <p>
-The Random Forest classifier reproduced the baseline rule because the target variable was generated from the same historical rule. Therefore, these results should be interpreted as reproducing the baseline decision process rather than demonstrating predictive superiority.
+The Random Forest classifier reproduced the baseline decision rule because the target variable was generated using the same historical scoring rule. These results demonstrate consistency with the baseline rather than improved predictive performance. The findings should therefore be interpreted as decision-support based on historical search signals.
 </p>
 
 <h2>5. Limitations</h2>
@@ -116,7 +118,7 @@ The Random Forest classifier reproduced the baseline rule because the target var
 
 <ol>
 <li>Prioritize pages with low historical clicks.</li>
-<li>Review pages with low impressions.</li>
+<li>Review pages with low historical impressions.</li>
 <li>Improve pages with poor average search position.</li>
 <li>Review metadata and content quality.</li>
 <li>Monitor performance after refresh.</li>
@@ -125,11 +127,11 @@ The Random Forest classifier reproduced the baseline rule because the target var
 <h2>7. Reproducibility</h2>
 
 <p>
-All notebooks, code and outputs are available in my GitHub repository:
+All notebooks, source code and supporting files are available in my public GitHub repository. The analysis can be reproduced by running the notebooks in order using the anonymized FlyRank internship dataset included with the starter repository.
 </p>
 
 <p>
-<b>Repository:</b><br>
+<strong>Repository:</strong><br>
 https://github.com/SanaKamranButt/flyrank-ml-internship
 </p>
 
@@ -137,7 +139,8 @@ https://github.com/SanaKamranButt/flyrank-ml-internship
 
 <p>
 Built on the FlyRank ML Internship dataset.<br>
-Data credit: https://flyrank.ai
+Data credit:
+<a href="https://flyrank.ai" target="_blank">https://flyrank.ai</a>
 </p>
 
 <hr>
